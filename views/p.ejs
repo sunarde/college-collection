@@ -1,0 +1,124 @@
+<% include partials/header %>
+
+<style>
+    .container{
+            padding: 10px;
+            }
+.money{
+    font-size:31px;
+}
+.card-text-pname{
+    color: orange;
+    font-size: 25px;
+}
+.delivery-text{
+    background: #D6EAF8;
+    color: black;
+}
+.form-group{
+padding-left: 100px;
+}
+
+.price-detail{
+padding-left: 100px;
+}
+.card-label{
+    padding-left: 100px;
+}
+.tot-price{
+    color:orange;
+    font-size
+}
+
+  
+</style>
+
+<hr class="my-4">
+            <div class="container">
+                <p class="delivery-text">Important Note: Delivery will be provided at College Campus after display of College ID Card because this product is designed only for college students</p>
+                <p class="delivery-text">This product comes with <strong>Free Delivery</strong></p>
+            </div>
+
+                       
+<div class="container hidden-sx">    
+    <div class="row">
+        
+            <div class="col-sm-6 col-sx-12">
+                                     <div class="card-img-top" style="width: 28rem;">
+                                        <img class="card-img-top" src="<%= product.image %> ">
+                                     </div>
+            </div>
+    
+        
+            <div class="col-sm-6 col-sx-12">
+                                    <div class="card-label">
+                                        <p class="card-text-pname"><%=product.product_name%></p>
+                                        <p class="money"> <i class="fas fa-rupee-sign "></i><%=product.price%></p>
+                                    </div>
+       
+                                   
+                   <form action="/colleges/p/:id" method="POST">
+                            
+                            <div class="form-group">
+                                <input type="hidden" name="productname" value=<%=product.product_name%>    >
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="hidden" name="price" value=<%=product.price%>    >
+                            </div>
+                      
+                             <div class="form-group">
+                                <select class="form-control" name="size" type="text" >
+                                        <option>Select Size</option>    
+                                        <option>S</option>
+                                        <option>M</option>
+                                        <option>L</option>
+                                        <option>XL</option>
+                                </select>
+                            </div>          
+                            
+                            <div class="form-group">  
+                                <input class="form-control" type="text" name="firstname" placeholder="FirstName" required>
+                            </div> 
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="lastname" placeholder="LastName" required>
+                            </div>
+                
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="college"  placeholder="Enter Your College Name & Address" required>
+                            </div>
+              
+                            <div class="form-group">  
+                                <input class="form-control" type="number" name="mobile" placeholder="Mobile" required>
+                            </div> 
+                    
+                            <div class="form-group">  
+                                <input class="form-control" type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                  
+                            <div class="form-group">  
+                                <input class="form-control" type="number" name="pincode" placeholder="Pincode" required>
+                            </div>
+                 
+                            <hr class="my-4">           
+                            
+                            <div class="price-detail">
+                                <h4>PRICE DETAIL</h4>
+                            <p>Buy Total <span style="margin-left:125px"></span><i class="fas fa-rupee-sign margin-left:50px"></i><%=product.price%></p>
+                                <p>Delivery Charges<span style="margin-left:80px"></span>FREE</p>
+                            <hr class="my-4">    
+                                <h4 class="tot-price">TOTAL <i class="fas fa-rupee-sign "></i><%=product.price%></h4>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-lg btn-primary btn-block">MAKE PAYMENT</button>
+                            </div>
+                    </form>
+           
+            
+            
+        </div>     
+              
+    </div>
+</div>
+
+<% include partials/footer %>

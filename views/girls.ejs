@@ -1,0 +1,50 @@
+<% include partials/header %>
+<style>
+.card{
+        margin: 10px 10px;
+            }
+        .card-body{
+            background: #a6b5fc;
+                    }
+                    
+body{
+    background:	#e6ddde;
+    
+    
+}
+
+  
+    
+ </style>
+ <div class="container">
+    <div class="card text-center">
+        <div class="card-body">
+      <h2>Fashion is Life !</h2>
+         <h2>T-Shirt For Girls</h2>
+      
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">    
+    <div class="row text-center">
+        
+
+                <% girl.forEach(function(girl){ %>
+                    <div class="col-md-3 mb-2">
+                        <div class="card">
+                            <a class="shop-item" href="/colleges/p/<%= girl._id %>">
+                             <img class="card-img-top" src="<%= girl.image %> ">
+                              <h5 class="card-title"><%= girl.product_name %></h5>
+                              <i class="fas fa-rupee-sign"></i><%= girl.price%>
+                            </a>
+                             
+                        </div>
+                    </div>
+                <% }); %>
+    </div>
+    
+</div>
+<% include partials/footer %>
